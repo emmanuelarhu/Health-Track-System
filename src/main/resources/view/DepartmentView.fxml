@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="main.java.hospital.controller.DepartmentController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Department Management" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.6" orientation="VERTICAL">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Search: " />
+                    <TextField fx:id="txtSearch" promptText="Enter department code, name, or building" HBox.hgrow="ALWAYS" />
+                    <Button text="Search" onAction="#handleSearchAction" />
+                    <Button text="Clear Search" onAction="#handleClearSearchAction" />
+                </HBox>
+
+                <TableView fx:id="tableDepartments" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colDepartmentCode" text="Code" prefWidth="100" />
+                        <TableColumn fx:id="colName" text="Name" prefWidth="250" />
+                        <TableColumn fx:id="colBuilding" text="Building" prefWidth="200" />
+                        <TableColumn fx:id="colDirector" text="Director ID" prefWidth="100" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Department Details" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="5" right="5" bottom="5" left="5"/>
+                    </padding>
+
+                    <Label text="Department Code:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="txtDepartmentCode" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                    <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="txtName" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                    <Label text="Building:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <TextField fx:id="txtBuilding" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                    <Label text="Director:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="cmbDirector" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3" prefWidth="400" />
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button fx:id="btnSave" text="Save" onAction="#handleSaveAction" />
+                    <Button fx:id="btnUpdate" text="Update" onAction="#handleUpdateAction" />
+                    <Button fx:id="btnDelete" text="Delete" onAction="#handleDeleteAction" />
+                    <Button fx:id="btnClear" text="Clear" onAction="#handleClearAction" />
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #f0f0f0; -fx-padding: 5;">
+            <Label fx:id="statusLabel" text="Ready" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
