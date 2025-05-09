@@ -6,22 +6,6 @@
 
 A comprehensive JavaFX application for managing hospital operations, including patient records, staff management, hospitalization tracking, and departmental organization.
 
-## 📋 Table of Contents
-
-- [Features](#features)
-- [System Architecture](#system-architecture)
-- [Database Schema](#database-schema)
-- [Screenshots](#screenshots)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 ## 🌟 Features
 
 ### Patient Management
@@ -169,7 +153,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-Emmanuel Arhu - [emmanuelarhu706@gmail.com](mailto:emmanuelarhu706@gmai.com)
+Emmanuel Arhu - [emmanuelarhu706@gmail.com](mailto:emmanuelarhu706@gmail.com)
 
 Project Link: [Health-Track-System](https://github.com/emmanuelarhu/Health-Track-System)
 
