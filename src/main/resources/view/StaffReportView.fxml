@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="main.java.hospital.controller.StaffReportController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Staff Reports" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.3" orientation="HORIZONTAL">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Report Options" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+                <TitledPane text="Doctor Reports" expanded="true">
+                    <VBox spacing="10">
+                        <Button text="All Doctors List" onAction="#handleDoctorListAction" maxWidth="Infinity" />
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Doctor:" />
+                            <ComboBox fx:id="cmbDoctor" promptText="Select Doctor" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        </HBox>
+                        <Button text="Doctor Patients Report" onAction="#handleDoctorPatientsAction" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+
+                <TitledPane text="Nurse Reports" expanded="true">
+                    <VBox spacing="10">
+                        <Button text="All Nurses List" onAction="#handleNurseListAction" maxWidth="Infinity" />
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Rotation:" />
+                            <ComboBox fx:id="cmbRotation" promptText="Select Rotation" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        </HBox>
+                        <Button text="Nurses by Rotation" onAction="#handleStaffByRotationAction" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+
+                <TitledPane text="Department Reports" expanded="true">
+                    <VBox spacing="10">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Department:" />
+                            <ComboBox fx:id="cmbDepartment" promptText="Select Department" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        </HBox>
+                        <Button text="Department Staff Report" onAction="#handleDepartmentStaffAction" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+
+                <Button text="Ward Supervisors Report" onAction="#handleWardSupervisorsAction" maxWidth="Infinity" />
+                <Button text="Staff Statistics" onAction="#handleStaffStatisticsAction" maxWidth="Infinity" />
+
+                <Button text="Export Report to CSV" onAction="#handleExportAction" maxWidth="Infinity"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+            </VBox>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Report:" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+                    <Label fx:id="lblReportTitle" style="-fx-font-size: 14;" HBox.hgrow="ALWAYS" />
+                    <Separator HBox.hgrow="ALWAYS" />
+                    <Label fx:id="lblRecordCount" style="-fx-font-style: italic;" />
+                </HBox>
+
+                <TableView fx:id="tableReport" VBox.vgrow="ALWAYS">
+                    <!-- Columns will be added dynamically based on report type -->
+                </TableView>
+
+                <TextArea fx:id="txtReportSummary" prefHeight="100" editable="false" wrapText="true" />
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #f0f0f0; -fx-padding: 5;">
+            <Label fx:id="statusLabel" text="Ready" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
