@@ -1,0 +1,119 @@
+/* Application-wide styles */
+
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Button styles */
+.button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.button:hover {
+    -fx-background-color: #0d8bf2;
+}
+
+.button:pressed {
+    -fx-background-color: #0b7ddb;
+}
+
+/* Dashboard buttons */
+.dashboard-button {
+    -fx-background-color: #4CAF50;
+    -fx-min-width: 150px;
+    -fx-min-height: 80px;
+    -fx-font-size: 14px;
+}
+
+.dashboard-button:hover {
+    -fx-background-color: #3d8b40;
+}
+
+/* Table styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f2f2f2;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #b3d9ff;
+}
+
+/* Form fields */
+.text-field, .text-area, .combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+    -fx-padding: 5px;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused {
+    -fx-border-color: #2196F3;
+}
+
+/* Tab styles */
+.tab-pane {
+    -fx-tab-min-height: 30px;
+    -fx-tab-max-height: 30px;
+}
+
+.tab {
+    -fx-background-color: #e0e0e0;
+    -fx-padding: 5px 10px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: white;
+    -fx-focus-color: transparent;
+}
+
+/* Status bar */
+.status-bar {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 5px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* Labels */
+.title-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 0;
+}
+
+/* Section headers */
+.section-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 0;
+}
+
+/* Error styling */
+.error-label {
+    -fx-text-fill: #f44336;
+    -fx-font-weight: bold;
+}
+
+.error-field {
+    -fx-border-color: #f44336;
+}
