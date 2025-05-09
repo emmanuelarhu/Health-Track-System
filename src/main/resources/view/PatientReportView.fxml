@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="main.java.hospital.controller.PatientReportController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Patient Reports" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.3" orientation="HORIZONTAL">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Report Options" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+                <TitledPane text="Patient Selection" expanded="true">
+                    <VBox spacing="10">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Patient:" />
+                            <ComboBox fx:id="cmbPatient" promptText="Select Patient" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        </HBox>
+                        <Button text="View Patient Report" onAction="#handlePatientReportAction" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+
+                <TitledPane text="Department Reports" expanded="true">
+                    <VBox spacing="10">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Department:" />
+                            <ComboBox fx:id="cmbDepartment" promptText="Select Department" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        </HBox>
+                        <Button text="View Department Patient Report" onAction="#handleDepartmentReportAction" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+
+                <TitledPane text="Date Range Reports" expanded="true">
+                    <VBox spacing="10">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Start Date:" />
+                            <DatePicker fx:id="dpStartDate" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        </HBox>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="End Date:" />
+                            <DatePicker fx:id="dpEndDate" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+                        </HBox>
+                        <Button text="View Date Range Report" onAction="#handleDateRangeReportAction" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+
+                <TitledPane text="Diagnosis Reports" expanded="true">
+                    <VBox spacing="10">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Diagnosis:" />
+                            <TextField fx:id="txtDiagnosis" promptText="Enter diagnosis keyword" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                        <Button text="View Diagnosis Report" onAction="#handleDiagnosisReportAction" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+
+                <Button text="View All Current Patients" onAction="#handleAllCurrentPatientsAction" maxWidth="Infinity" />
+                <Button text="View Patient Statistics" onAction="#handlePatientStatisticsAction" maxWidth="Infinity" />
+
+                <Button text="Export Report to CSV" onAction="#handleExportAction" maxWidth="Infinity"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+            </VBox>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Report:" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+                    <Label fx:id="lblReportTitle" style="-fx-font-size: 14;" HBox.hgrow="ALWAYS" />
+                    <Separator HBox.hgrow="ALWAYS" />
+                    <Label fx:id="lblRecordCount" style="-fx-font-style: italic;" />
+                </HBox>
+
+                <TableView fx:id="tableReport" VBox.vgrow="ALWAYS">
+                    <!-- Columns will be added dynamically based on report type -->
+                </TableView>
+
+                <TextArea fx:id="txtReportSummary" prefHeight="100" editable="false" wrapText="true" />
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #f0f0f0; -fx-padding: 5;">
+            <Label fx:id="statusLabel" text="Ready" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
