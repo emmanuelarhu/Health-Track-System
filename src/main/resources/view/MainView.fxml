@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="main.java.hospital.controller.MainController"
+            prefHeight="768.0" prefWidth="1024.0">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <HBox alignment="CENTER">
+                <Label text="HealthTrack System" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Exit" onAction="#handleExitAction"/>
+                </Menu>
+                <Menu text="Management">
+                    <MenuItem text="Patients" onAction="#handlePatientsAction"/>
+                    <MenuItem text="Doctors" onAction="#handleDoctorsAction"/>
+                    <MenuItem text="Nurses" onAction="#handleNursesAction"/>
+                    <MenuItem text="Departments" onAction="#handleDepartmentsAction"/>
+                    <MenuItem text="Wards" onAction="#handleWardsAction"/>
+                    <MenuItem text="Hospitalizations" onAction="#handleHospitalizationsAction"/>
+                </Menu>
+                <Menu text="Reports">
+                    <MenuItem text="Patient Reports" onAction="#handlePatientReportsAction"/>
+                    <MenuItem text="Staff Reports" onAction="#handleStaffReportsAction"/>
+                </Menu>
+                <Menu text="Help">
+                    <MenuItem text="About" onAction="#handleAboutAction"/>
+                </Menu>
+            </MenuBar>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Dashboard" fx:id="dashboardTab">
+                <VBox spacing="20" alignment="CENTER">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <Label text="Welcome to HealthTrack System" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+                    <Label text="Please use the menu above to navigate to different modules." style="-fx-font-size: 14;"/>
+
+                    <GridPane hgap="20" vgap="20" alignment="CENTER">
+                        <padding>
+                            <Insets top="30" right="10" bottom="10" left="10"/>
+                        </padding>
+
+                        <Button text="Patients" minWidth="150" minHeight="80"
+                                onAction="#handlePatientsAction"
+                                GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+
+                        <Button text="Doctors" minWidth="150" minHeight="80"
+                                onAction="#handleDoctorsAction"
+                                GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Button text="Nurses" minWidth="150" minHeight="80"
+                                onAction="#handleNursesAction"
+                                GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+
+                        <Button text="Departments" minWidth="150" minHeight="80"
+                                onAction="#handleDepartmentsAction"
+                                GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+                        <Button text="Wards" minWidth="150" minHeight="80"
+                                onAction="#handleWardsAction"
+                                GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Button text="Hospitalizations" minWidth="150" minHeight="80"
+                                onAction="#handleHospitalizationsAction"
+                                GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                    </GridPane>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #f0f0f0; -fx-padding: 5;">
+            <Label text="HealthTrack System - © 2025" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label fx:id="statusLabel" text="Ready" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
