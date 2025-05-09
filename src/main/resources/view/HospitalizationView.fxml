@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="main.java.hospital.controller.HospitalizationController"
+            prefHeight="600.0" prefWidth="1000.0">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Hospitalization Management" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.6" orientation="VERTICAL">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Search: " />
+                    <TextField fx:id="txtSearch" promptText="Enter patient name, diagnosis, or doctor" HBox.hgrow="ALWAYS" />
+                    <Button text="Search" onAction="#handleSearchAction" />
+                    <Button text="Clear Search" onAction="#handleClearSearchAction" />
+                    <CheckBox fx:id="chkShowCurrent" text="Current Patients Only" selected="true" onAction="#handleShowCurrentAction" />
+                </HBox>
+
+                <TableView fx:id="tableHospitalizations" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colHospitalizationId" text="ID" prefWidth="50" />
+                        <TableColumn fx:id="colPatient" text="Patient" prefWidth="150" />
+                        <TableColumn fx:id="colDepartmentWard" text="Department/Ward" prefWidth="150" />
+                        <TableColumn fx:id="colBedNumber" text="Bed #" prefWidth="60" />
+                        <TableColumn fx:id="colDiagnosis" text="Diagnosis" prefWidth="200" />
+                        <TableColumn fx:id="colDoctor" text="Doctor" prefWidth="150" />
+                        <TableColumn fx:id="colAdmissionDate" text="Admission Date" prefWidth="100" />
+                        <TableColumn fx:id="colDischargeDate" text="Discharge Date" prefWidth="100" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Hospitalization Details" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="5" right="5" bottom="5" left="5"/>
+                    </padding>
+
+                    <Label text="Hospitalization ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="txtHospitalizationId" GridPane.rowIndex="0" GridPane.columnIndex="1" disable="true" />
+
+                    <Label text="Patient:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="cmbPatient" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200" />
+
+                    <Label text="Department:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="cmbDepartment" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="200" />
+
+                    <Label text="Ward:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="cmbWard" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200" />
+
+                    <Label text="Bed Number:" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                    <TextField fx:id="txtBedNumber" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+                    <Label text="Diagnosis:" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                    <TextField fx:id="txtDiagnosis" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+                    <Label text="Doctor:" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                    <ComboBox fx:id="cmbDoctor" GridPane.rowIndex="2" GridPane.columnIndex="3" prefWidth="200" />
+
+                    <Label text="Admission Date:" GridPane.rowIndex="3" GridPane.columnIndex="2" />
+                    <DatePicker fx:id="dpAdmissionDate" GridPane.rowIndex="3" GridPane.columnIndex="3" />
+
+                    <Label text="Discharge Date:" GridPane.rowIndex="4" GridPane.columnIndex="2" />
+                    <DatePicker fx:id="dpDischargeDate" GridPane.rowIndex="4" GridPane.columnIndex="3" />
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button fx:id="btnSave" text="Save" onAction="#handleSaveAction" />
+                    <Button fx:id="btnUpdate" text="Update" onAction="#handleUpdateAction" />
+                    <Button fx:id="btnDischarge" text="Discharge Patient" onAction="#handleDischargeAction" />
+                    <Button fx:id="btnDelete" text="Delete" onAction="#handleDeleteAction" />
+                    <Button fx:id="btnClear" text="Clear" onAction="#handleClearAction" />
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #f0f0f0; -fx-padding: 5;">
+            <Label fx:id="statusLabel" text="Ready" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
